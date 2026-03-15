@@ -1,8 +1,14 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
 bcrypt==4.0.1
 pydantic
 pydantic-settings
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch
 pandas
+numpy
 python-dotenv
 passlib[bcrypt]
 tables
