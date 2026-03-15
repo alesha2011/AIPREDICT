@@ -14,12 +14,10 @@ DB_NAME = os.getenv("DB_NAME", "bosch_ai")
 # Construct the URL from parts
 SQLALCHEMY_DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
-try:
-    engine = create_engine(SQLALCHEMY_DATABASE_URL)
-    # Test connection creation
-    engine.connect()
-except Exception as e:
-    print(f"Failed to connect to PostgreSQL. Using SQLite fallback. Error: {e}")
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+
+# Fallback to SQLite if DATABASE_URL doesn't look like postgres (optional safety)
+if not SQLALCHEMY_DATABASE_URL.startswith("postgresql"):
     SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
     engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 

@@ -1,4 +1,13 @@
+import logging
+import sys
 from datetime import datetime, timezone
+
+# Basic logging to stdout for cloud visibility
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+logger.info("--- BACKEND STARTING UP ---")
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import models
