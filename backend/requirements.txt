@@ -13,3 +13,4 @@ python-dotenv
 passlib[bcrypt]
 tables
 h5py
+python-multipart
