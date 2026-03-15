@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-space-900: #050511;
+  --color-space-800: #0A0F1C;
+  --color-electric: #00F0FF;
+  --color-neon: #0033FF;
+  --color-warning: #FF0055;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, var(--color-space-900), var(--color-space-800));
+  color: white;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Inter', 'Space Grotesk', sans-serif;
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 240, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
