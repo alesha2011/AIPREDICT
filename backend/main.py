@@ -51,10 +51,10 @@ app.add_middleware(
 
 app.include_router(router, prefix="/api/v1")
 
-@app.get("/")
+@app.get("/", methods=["GET", "HEAD"])
 def read_root():
     return {"message": "Welcome to the AI Predictive Maintenance API"}
 
-@app.get("/health")
+@app.get("/health", methods=["GET", "HEAD"])
 def health_check():
     return {"status": "ok", "timestamp": datetime.now(timezone.utc).isoformat()}
