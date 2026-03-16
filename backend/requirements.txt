@@ -13,4 +13,4 @@ python-dotenv
 passlib[bcrypt]
 tables
 h5py
-python-multipart
+python-multipart==0.0.9

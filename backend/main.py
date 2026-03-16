@@ -3,10 +3,22 @@ import sys
 from datetime import datetime, timezone
 
 # Basic logging to stdout for cloud visibility
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    stream=sys.stdout
+)
 logger = logging.getLogger(__name__)
 
 logger.info("--- BACKEND STARTING UP ---")
+logger.info(f"Python version: {sys.version}")
+
+# Diagnostic check for python-multipart
+try:
+    import multipart
+    logger.info("Multipart package imported successfully")
+except ImportError:
+    logger.error("CRITICAL: python-multipart is NOT installed correctly!")
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
