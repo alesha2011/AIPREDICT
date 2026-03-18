@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DB_USER = os.getenv("DB_USER", "postgres")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "1234")
-DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_USER = os.getenv("DB_USER", "gen_user")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "13jy355n")
+DB_HOST = os.getenv("DB_HOST", "192.168.0.4")
 DB_PORT = os.getenv("DB_PORT", "5432")
-DB_NAME = os.getenv("DB_NAME", "bosch_ai")
+DB_NAME = os.getenv("DB_NAME", "default_db")
 
 # Construct the URL from parts - using postgresql+psycopg2 for explicit driver selection
 if all([DB_USER, DB_PASSWORD, DB_HOST, DB_NAME]):
